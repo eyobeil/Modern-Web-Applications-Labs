@@ -1,0 +1,6 @@
+The function affects the event loop in the following description.
+
+ console.log('start'); is first pushed into the stack . Then the browser pushes the first statement in the removeNum function which is (setTimeout() with callback result() and 5000ms wait time) and execution starts. setTimeout function uses a Browser API to delay a callback to the provided function. The frame (with setTimeout) is then popped out once the handover to browser is complete (for the timer).
+
+After the execution of the all statement which are synchronous, the call stack becomes empty. For the browser to push any message from the queue to the call stack, the call stack has to be empty first. That is why even though the delay provided in the setTimeout() is 0 ms, the callback to result() has to wait till the execution of all the frames in the call stack is complete.
+Now the callback result() is pushed into the call stack and executed. The result array is display on the console. This is the event loop of javascript.

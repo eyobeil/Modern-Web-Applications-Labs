@@ -1,0 +1,4 @@
+All of the methods are Asynchronous.
+1. Since the promise represents a value which may be available now, in the future or never, it is asynchronous.
+2.await only blocks the code execution within the async function. It only makes sure that next line is executed when the promise resolves. So if an asynchronous activity has already started then await will not have an effect on it. 
+3. Observables are lazy, which emits 0 or more events and may not finish, they are triggered once subscribed therefore they are asynchronous.
